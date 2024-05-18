@@ -30,7 +30,7 @@ function LandingPage({ show }: { show: Boolean }) {
                 Welcome, {name}!
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 p-4 bg-white shadow-lg rounded-lg w-full max-w-6xl px-10">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 p-4 shadow-lg rounded-lg w-full max-w-6xl px-10">
                 <TaskSummary />
                 <QuickAddTask />
                 <Notifications />

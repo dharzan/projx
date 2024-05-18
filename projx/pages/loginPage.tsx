@@ -11,7 +11,7 @@ function Login({ providers }: LoginProps) {
 
   return (
     <>
-      <div className='flex items-center justify-center py-4 font-helvetica text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'> Resume Optimizer</div>
+      <div className='flex items-center justify-center py-4 font-helvetica text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'>Task Manager</div>
 
       <div className='flex items-center justify-center h-screen'>
         {Object.values(providers).map((provider) => (
