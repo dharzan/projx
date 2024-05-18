@@ -1,0 +1,6 @@
+import type { LiteralUnion, ClientSafeProvider } from "next-auth/react";
+
+
+export interface LoginProps {
+  providers: Record<LiteralUnion<string, string>, ClientSafeProvider> | null;
+}
