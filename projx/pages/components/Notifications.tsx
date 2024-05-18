@@ -15,8 +15,8 @@ const Notifications: React.FC = () => {
 
     return (
         <div className="p-4 bg-white shadow-lg rounded-lg">
-            <h2 className="text-black" >Notifications</h2>
-            <ul className="text-black">
+            <h2 className="text-lg font-semibold mb-3 text-black text-center" >Notifications</h2>
+            <ul className="text-lg font-semibold mb-3 text-black text-center">
                 {notifications.map(notification => (
                     <li key={notification.id}>{notification.text}</li>
                 ))}
