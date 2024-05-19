@@ -38,16 +38,18 @@ function LandingPage({ show }: { show: Boolean }) {
     }, []);
 
 
-    function handleSubmit(event: any): void {
-        throw new Error('Function not implemented.');
-    }
+    const handleSubmit = (event: any) => {
+        event.preventDefault(); // Prevent default form submission behavior
+        // Here you can handle the submission, e.g., send the data to a server
+        console.log('Submitted:', suggestion);
+    };
 
     return (
         <>
 
             <AppBar position="static" color="default" elevation={0} sx={{ background: 'transparent', boxShadow: 'none' }}>
                 <Toolbar sx={{ justifyContent: 'center', paddingTop: 10 }}>
-                    <img src="/golden-ratio.png" alt="Website Logo" style={{ height: '70px', alignItems: 'center', justifyItems: 'center' }} />
+                    <img src="/golden_ratio.png" alt="Website Logo" style={{ height: '70px', alignItems: 'center', justifyItems: 'center' }} />
                 </Toolbar>
             </AppBar>
 
