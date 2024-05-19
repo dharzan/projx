@@ -68,16 +68,20 @@ function LandingPage({ show }: { show: Boolean }) {
 
                 padding: 2,
                 backgroundColor: 'black', // Optional: Background color
-            }}>                <Typography
+            }}>               
+             <Typography
                 component="h1"
                 variant="h4"
+                fontFamily={'monotone'}
+                textAlign={'center'}
                 sx={{
                     mb: 3, // margin-bottom
                     color: 'white', // text color
                     pt: 5, // padding-top
-                    fontFamily: 'cursive', // font family
+                     // font family
                     textAlign: 'center' // text alignment
                 }}
+                
             >
                     Enter Suggestions for a projx software as a service (Saas)
                 </Typography>
