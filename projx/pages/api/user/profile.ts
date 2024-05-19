@@ -15,6 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       const { name, image } = session.user;
       if(name){
+        
         res.status(200).json({ name: session.user.name });
         
       }
