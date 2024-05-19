@@ -38,8 +38,8 @@ function Login({ providers }: LoginProps) {
 
           }}
         >
-          <Typography component="h1" variant="h4" sx={{ mb: 3 }} color={'white'} paddingTop={5} fontFamily={'cursive'}>
-            Login
+            <Typography component="h1" variant="h4" sx={{ mb: 3 }} color={'white'} paddingTop={5} fontFamily={'cursive'} textAlign={'center'}>
+            Log In
           </Typography>
 
           <div className='flex items-center justify-center h-screen'>

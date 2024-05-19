@@ -38,11 +38,28 @@ function LandingPage({ show }: { show: Boolean }) {
     }, []);
 
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = async (event: any) => {
         event.preventDefault(); // Prevent default form submission behavior
-        // Here you can handle the submission, e.g., send the data to a server
-        console.log('Submitted:', suggestion);
+        try {
+            const response = await fetch('/api/models/suggestions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ suggestion: suggestion }),
+            });
+            const data = await response.json();
+            if (response.ok) {
+                console.log('Suggestion submitted:', data);
+                setSuggestion(''); // Clear the input after successful submission
+            } else {
+                console.error('Submission failed:', data.message);
+            }
+        } catch (error) {
+            console.error('Failed to submit suggestion:', error);
+        }
     };
+    
 
     return (
         <>
