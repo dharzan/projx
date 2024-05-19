@@ -7,7 +7,7 @@ export interface LoginProps {
   providers: Record<LiteralUnion<string, string>, ClientSafeProvider> | null;
 }
 function Login({ providers }: LoginProps) {
-  if (!providers) return null;
+  // if (!providers) return null;
 
   return (
     <>
