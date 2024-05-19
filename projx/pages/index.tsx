@@ -4,7 +4,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     redirect: {
       destination: '/loginPage',
-      permanent: false,
+      permanent: true,
     },
   };
 };
