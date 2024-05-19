@@ -2,10 +2,10 @@ import React from 'react';
 import { signIn, getProviders } from "next-auth/react";
 import type { LiteralUnion, ClientSafeProvider } from "next-auth/react";
 
-
 export interface LoginProps {
   providers: Record<LiteralUnion<string, string>, ClientSafeProvider> | null;
 }
+
 function Login({ providers }: LoginProps) {
   if (!providers) return null;
 
@@ -23,9 +23,7 @@ function Login({ providers }: LoginProps) {
               <img src='/google.png' alt="google icon" className='h-5 px-2' />
               Sign in with {provider.name}
             </button>
-
           </div>
-
         ))}
       </div>
     </>
@@ -33,13 +31,20 @@ function Login({ providers }: LoginProps) {
 }
 
 export async function getServerSideProps() {
-  const providers = await getProviders();
+  try {
+    console.log('Fetching providers...');
+    const providers = await getProviders();
+    console.log('Providers fetched:', providers);
 
-  console.log('Providers:', providers);
-
-  return {
-    props: { providers },
-  };
+    return {
+      props: { providers },
+    };
+  } catch (error) {
+    console.error('Error fetching providers:', error);
+    return {
+      props: { providers: null },
+    };
+  }
 }
 
 export default Login;
