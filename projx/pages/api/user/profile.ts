@@ -12,7 +12,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if(session.user){
       // Return user's name if session exists
-      res.status(200).json({ name: session.user.name });
+
+      const { name, image } = session.user;
+      if(name){
+        res.status(200).json({ name: session.user.name });
+        
+      }
+      
 
     }
     
