@@ -7,13 +7,13 @@ export interface LoginProps {
   providers: Record<LiteralUnion<string, string>, ClientSafeProvider> | null;
 }
 function Login({ providers }: LoginProps) {
-  // if (!providers) return null;
+  if (!providers) return null;
 
   return (
     <>
       <div className='flex items-center justify-center py-4 font-helvetica text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'>Task Manager</div>
 
-      {/* <div className='flex items-center justify-center h-screen'>
+      <div className='flex items-center justify-center h-screen'>
         {Object.values(providers).map((provider) => (
           <div key={provider.id}>
             <button
@@ -27,13 +27,15 @@ function Login({ providers }: LoginProps) {
           </div>
 
         ))}
-      </div> */}
+      </div>
     </>
   );
 }
 
 export async function getServerSideProps() {
   const providers = await getProviders();
+
+  console.log('Providers:', providers);
 
   return {
     props: { providers },
