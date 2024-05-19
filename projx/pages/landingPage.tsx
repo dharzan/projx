@@ -49,12 +49,12 @@ function LandingPage({ show }: { show: Boolean }) {
 
             <AppBar position="static" color="default" elevation={0} sx={{ background: 'transparent', boxShadow: 'none' }}>
                 <Toolbar sx={{ justifyContent: 'center', paddingTop: 10 }}>
-                    <img src="/golden_ratio.png" alt="Website Logo" style={{ height: '70px', alignItems: 'center', justifyItems: 'center' }} />
+                    <img src="/fox.png" alt="Website Logo" style={{ height: '70px', alignItems: 'center', justifyItems: 'center' }} />
                 </Toolbar>
             </AppBar>
 
             {/* <div className='flex items-center justify-center py-4 font-helvetica text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'> Task Manager</div> */}
-            <Typography component="h1" variant="h4" sx={{ mb: 3 }} color={'white'} paddingTop={5} fontFamily={'cursive'} textAlign={'center'}>
+            <Typography component="h1" variant="h4" sx={{ mb: 3 }} color={'white'} paddingTop={5} fontFamily={'monospace'} textAlign={'center'}>
                 Welcome, {name}! {photo}
             </Typography>
 
