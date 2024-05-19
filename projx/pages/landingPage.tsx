@@ -25,15 +25,15 @@ function LandingPage({ show }: { show: Boolean }) {
 
     return (
         <>
-            <div className='flex items-center justify-center py-4 font-helvetica text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'> Task Manager</div>
+            {/* <div className='flex items-center justify-center py-4 font-helvetica text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'> Task Manager</div> */}
             <div className='mt-4 text-lg font-semibold items-center justify-center flex'>
                 Welcome, {name}!
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 p-4 shadow-lg rounded-lg w-full max-w-6xl px-10">
-                <TaskSummary />
+                {/* <TaskSummary />
                 <QuickAddTask />
-                <Notifications />
+                <Notifications /> */}
             </div>
 
         </>
