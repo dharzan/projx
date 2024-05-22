@@ -14,7 +14,11 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddIcon from "@material-ui/icons/Add";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import BookIcon from "@material-ui/icons/Book";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import DeleteIcon from "@material-ui/icons/Delete";
+import SyncIcon from "@material-ui/icons/Sync";
 import React, { useReducer, useState } from "react";
 import NavigationMenu from "./components/NavigationMenu";
 const useStyles = makeStyles((theme: any) => ({
@@ -26,7 +30,23 @@ const useStyles = makeStyles((theme: any) => ({
         marginBottom: theme.spacing(2),
     },
     cardHeader: {
-        backgroundColor: theme.palette.grey[200],
+        display: "flex",
+        alignItems: "center",
+    },
+    cardIcon: {
+        marginRight: theme.spacing(1),
+    },
+    resourcesHeader: {
+        backgroundColor: theme.palette.info.light,
+    },
+    todoHeader: {
+        backgroundColor: theme.palette.warning.light,
+    },
+    doingHeader: {
+        backgroundColor: theme.palette.primary.light,
+    },
+    doneHeader: {
+        backgroundColor: theme.palette.success.light,
     },
     avatar: {
         backgroundColor: theme.palette.primary.main,
@@ -121,14 +141,15 @@ const TaskManager: React.FC = () => {
     );
     return (
         <>
-            <NavigationMenu></NavigationMenu>
+            <NavigationMenu />
             <Container maxWidth="lg" className={classes.root}>
                 <Grid container spacing={3}>
                     {/* Column: Resources */}
                     <Grid item xs={12} sm={6} md={3}>
                         <Card className={classes.card}>
                             <CardHeader
-                                className={classes.cardHeader}
+                                className={`${classes.cardHeader} ${classes.resourcesHeader}`}
+                                avatar={<BookIcon className={classes.cardIcon} />}
                                 title="Resources"
                                 action={
                                     <IconButton onClick={() => handleAddTask("resources")}>
@@ -161,7 +182,8 @@ const TaskManager: React.FC = () => {
                     <Grid item xs={12} sm={6} md={3}>
                         <Card className={classes.card}>
                             <CardHeader
-                                className={classes.cardHeader}
+                                className={`${classes.cardHeader} ${classes.todoHeader}`}
+                                avatar={<AssignmentIcon className={classes.cardIcon} />}
                                 title="To Do"
                                 action={
                                     <IconButton onClick={() => handleAddTask("todo")}>
@@ -189,7 +211,8 @@ const TaskManager: React.FC = () => {
                     <Grid item xs={12} sm={6} md={3}>
                         <Card className={classes.card}>
                             <CardHeader
-                                className={classes.cardHeader}
+                                className={`${classes.cardHeader} ${classes.doingHeader}`}
+                                avatar={<SyncIcon className={classes.cardIcon} />}
                                 title="Doing"
                                 action={
                                     <IconButton onClick={() => handleAddTask("doing")}>
@@ -217,7 +240,8 @@ const TaskManager: React.FC = () => {
                     <Grid item xs={12} sm={6} md={3}>
                         <Card className={classes.card}>
                             <CardHeader
-                                className={classes.cardHeader}
+                                className={`${classes.cardHeader} ${classes.doneHeader}`}
+                                avatar={<CheckCircleIcon className={classes.cardIcon} />}
                                 title="Done"
                                 action={
                                     <IconButton onClick={() => handleAddTask("done")}>
@@ -233,6 +257,7 @@ const TaskManager: React.FC = () => {
                                     fullWidth
                                     variant="outlined"
                                     margin="dense"
+                                    
                                 />
                                 <Button onClick={() => handleAddTask("done")} color="primary">
                                     Add Task
