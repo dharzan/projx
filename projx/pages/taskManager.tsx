@@ -257,7 +257,6 @@ const TaskManager: React.FC = () => {
                                     fullWidth
                                     variant="outlined"
                                     margin="dense"
-                                    
                                 />
                                 <Button onClick={() => handleAddTask("done")} color="primary">
                                     Add Task
