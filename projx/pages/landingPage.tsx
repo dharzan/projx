@@ -100,7 +100,7 @@ function LandingPage({ show }: { show: Boolean }) {
                 }}
                 
             >
-                    Enter Suggestions for projx software as a service (Saas)
+                    Ideas for SaaS startup!
                 </Typography>
 
                 <TextField
