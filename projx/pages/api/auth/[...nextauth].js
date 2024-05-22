@@ -9,7 +9,7 @@ export const authOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  debug: true, // Enable debug mode
+  debug: false, // Enable debug mode
 };
 
 export default NextAuth(authOptions);

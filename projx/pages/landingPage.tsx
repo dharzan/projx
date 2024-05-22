@@ -1,8 +1,5 @@
-import React from 'react'
-import TaskSummary from './components/TaskSummary';
-import QuickAddTask from './components/QuickAddTask';
-import Notifications from './components/Notifications';
-import { Button, TextField, Typography, Box, Container, Grid, Link, AppBar, Toolbar, IconButton } from '@mui/material';
+import { AppBar, Box, Button, TextField, Toolbar, Typography } from '@mui/material';
+import React from 'react';
 
 
 function LandingPage({ show }: { show: Boolean }) {
@@ -23,11 +20,11 @@ function LandingPage({ show }: { show: Boolean }) {
                     setName(data.name);
                 }
                 if (data.image) {
-                    console.log("here");
+                    //console.log("here");
                     setPhoto(data.image);  // Set the profile photo URL
                 }
                 else {
-                    console.log('not here');
+                    //console.log('not here');
                 }
             } catch (error) {
                 console.error('Failed to fetch data:', error);
@@ -39,9 +36,9 @@ function LandingPage({ show }: { show: Boolean }) {
 
 
     const handleSubmit = async (event: any) => {
-        event.preventDefault(); // Prevent default form submission behavior
+        // event.preventDefault(); // Prevent default form submission behavior
         try {
-            const response = await fetch('/api/models/suggestions', {
+            const response = await fetch('/api/models/ArraySuggestions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -123,6 +120,7 @@ function LandingPage({ show }: { show: Boolean }) {
                 color="primary"
                 onClick={handleSubmit}
                 
+                
                 sx={{
                     width: '200px', // Specific width for the button
                     height: '40px', // Set height for better click area
@@ -133,9 +131,6 @@ function LandingPage({ show }: { show: Boolean }) {
             </Button>
 
             </Box>
-
-
-
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 p-4 shadow-lg rounded-lg w-full max-w-6xl px-10">
                 {/* <TaskSummary />

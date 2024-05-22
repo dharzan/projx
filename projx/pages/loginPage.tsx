@@ -1,10 +1,6 @@
-import React from 'react';
-import { signIn, getProviders } from "next-auth/react";
-import type { LiteralUnion, ClientSafeProvider } from "next-auth/react";
-import { Button, TextField, Typography, Box, Container, Grid, Link, AppBar, Toolbar, IconButton } from '@mui/material';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import GoogleIcon from '@mui/icons-material/Google';
+import { AppBar, Box, Container, Toolbar, Typography } from '@mui/material';
+import type { ClientSafeProvider, LiteralUnion } from "next-auth/react";
+import { getProviders, signIn } from "next-auth/react";
 
 export interface LoginProps {
   providers: Record<LiteralUnion<string, string>, ClientSafeProvider> | null;
@@ -66,15 +62,15 @@ function Login({ providers }: LoginProps) {
 
 export async function getServerSideProps() {
   try {
-    console.log('Fetching providers...');
+    //console.log('Fetching providers...');
     const providers = await getProviders();
-    console.log('Providers fetched:', providers);
+    //console.log('Providers fetched:', providers);
 
     return {
       props: { providers },
     };
   } catch (error) {
-    console.error('Error fetching providers:', error);
+    //console.error('Error fetching providers:', error);
     return {
       props: { providers: null },
     };

@@ -14,4 +14,10 @@ const suggestionSchema = new mongoose.Schema({
 
 const Suggestion = mongoose.models.Suggestion || mongoose.model('Suggestion', suggestionSchema);
 
+export const config = {
+    api: {
+      externalResolver: true,
+    },
+  }
+
 export default Suggestion;
