@@ -23,6 +23,12 @@ const config: Config = {
 
       fontFamily: {
         'helvetica': ['Helvetica', 'Arial', 'sans-serif'],
+      },
+
+      width:{
+        '10': '10%',
+        '5': '5%',
+        '2': '2%'
       }
 
     },

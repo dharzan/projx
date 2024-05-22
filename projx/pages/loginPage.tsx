@@ -12,6 +12,8 @@ function Login({ providers }: LoginProps) {
   return (
     <>
 
+   
+
       <AppBar position="static" color="default" elevation={0} sx={{ background: 'transparent', boxShadow: 'none' }}>
         <Toolbar sx={{ justifyContent: 'center', paddingTop:10}}>
           <img src="/logo.png" alt="Website Logo" style={{ height: '70px' , alignItems:'center', justifyItems:'center'}} />

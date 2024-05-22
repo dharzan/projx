@@ -1,5 +1,6 @@
 import { AppBar, Box, Button, TextField, Toolbar, Typography } from '@mui/material';
 import React from 'react';
+import NavigationMenu from './components/NavigationMenu';
 
 
 function LandingPage({ show }: { show: Boolean }) {
@@ -60,6 +61,8 @@ function LandingPage({ show }: { show: Boolean }) {
 
     return (
         <>
+
+            <NavigationMenu/>
 
             <AppBar position="static" color="default" elevation={0} sx={{ background: 'transparent', boxShadow: 'none' }}>
                 <Toolbar sx={{ justifyContent: 'center', paddingTop: 10 }}>
