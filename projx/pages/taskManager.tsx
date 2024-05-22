@@ -10,7 +10,7 @@ import {
     ListItem,
     ListItemSecondaryAction,
     ListItemText,
-    TextField
+    TextField,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddIcon from "@material-ui/icons/Add";
@@ -63,10 +63,11 @@ type Task = {
     id: number;
     content: string;
 };
+type Column = "resources" | "todo" | "doing" | "done";
 type Action =
-    | { type: "ADD_TASK"; payload: { column: string; content: string } }
-    | { type: "DELETE_TASK"; payload: { column: string; id: number } };
-const taskReducer = (state: any, action: Action) => {
+    | { type: "ADD_TASK"; payload: { column: Column; content: string } }
+    | { type: "DELETE_TASK"; payload: { column: Column; id: number } };
+const taskReducer = (state: Record<Column, Task[]>, action: Action) => {
     switch (action.type) {
         case "ADD_TASK":
             return {
@@ -95,19 +96,19 @@ const TaskManager: React.FC = () => {
         doing: [],
         done: [],
     });
-    const [taskContent, setTaskContent] = useState({
+    const [taskContent, setTaskContent] = useState<Record<Column, string>>({
         resources: "",
         todo: "",
         doing: "",
         done: "",
     });
-    const handleInputChange = (column: string, value: string) => {
+    const handleInputChange = (column: Column, value: string) => {
         setTaskContent((prev) => ({
             ...prev,
             [column]: value,
         }));
     };
-    const handleAddTask = (column: string) => {
+    const handleAddTask = (column: Column) => {
         if (taskContent[column].trim() !== "") {
             dispatch({
                 type: "ADD_TASK",
@@ -119,10 +120,10 @@ const TaskManager: React.FC = () => {
             }));
         }
     };
-    const handleDeleteTask = (column: string, id: number) => {
+    const handleDeleteTask = (column: Column, id: number) => {
         dispatch({ type: "DELETE_TASK", payload: { column, id } });
     };
-    const renderTaskList = (tasks: Task[], column: string) => (
+    const renderTaskList = (tasks: Task[], column: Column) => (
         <List>
             {tasks.map((task) => (
                 <ListItem key={task.id}>
