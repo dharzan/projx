@@ -18,6 +18,6 @@
       "@types/*": ["types/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./globals.d.ts",],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./globals.d.ts", "pages/taskManager.jsx",],
   "exclude": ["node_modules"]
 }
